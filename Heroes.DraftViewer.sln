@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.ReplayParser", "Heroes.ReplayParser\Heroes.ReplayParser\Heroes.ReplayParser.csproj", "{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MpqTool", "Heroes.ReplayParser\MpqTool\MpqTool.csproj", "{FA50E172-836B-47BB-8745-60595E4FB12A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{C1BEFEBA-12F6-4EC4-8C8A-62443C9B5297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.DraftViewer.Core", "Heroes.DraftViewer.Core\Heroes.DraftViewer.Core.csproj", "{4D76934B-54D6-4359-B509-0F1900255B92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.DraftViewer.Tests", "Heroes.DraftViewer.Tests\Heroes.DraftViewer.Tests.csproj", "{4C0952C9-490A-40A6-93C0-FB31175E36FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Debug|x86.ActiveCfg = Debug|x86
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Debug|x86.Build.0 = Debug|x86
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Release|x86.ActiveCfg = Release|x86
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}.Release|x86.Build.0 = Release|x86
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Debug|x86.Build.0 = Debug|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA50E172-836B-47BB-8745-60595E4FB12A}.Release|x86.Build.0 = Release|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Debug|x86.Build.0 = Debug|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Release|x86.ActiveCfg = Release|Any CPU
+		{4D76934B-54D6-4359-B509-0F1900255B92}.Release|x86.Build.0 = Release|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Debug|x86.Build.0 = Debug|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|x86.ActiveCfg = Release|Any CPU
+		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B} = {C1BEFEBA-12F6-4EC4-8C8A-62443C9B5297}
+		{FA50E172-836B-47BB-8745-60595E4FB12A} = {C1BEFEBA-12F6-4EC4-8C8A-62443C9B5297}
+	EndGlobalSection
+EndGlobal
