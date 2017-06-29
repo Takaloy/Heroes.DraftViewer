@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DraftEventChainTest.cs" />
+    <Compile Include="HeroRepositoryTests.cs" />
+    <Compile Include="HeroResourceAttainerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

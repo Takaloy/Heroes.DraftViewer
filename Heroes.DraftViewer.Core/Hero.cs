@@ -2,40 +2,56 @@
 
 namespace Heroes.DraftViewer.Core
 {
+    public enum HeroRole
+    {
+        Warrior = 1,
+        Support = 2,
+        Assassin = 3,
+        Specialist = 4
+    }
+
+    public class HeroPortrait
+    {
+        public string Small { get; set; }
+        public string Medium { get; set; }
+    }
+
     public interface IPlayableHero
     {
+        int Id { get; }
         string Name { get; }
+        HeroRole Role { get; }
     }
 
     public class Hero : IPlayableHero, IEquatable<IPlayableHero>
     {
-        public Hero(string name)
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public HeroRole Role { get; set; }
+        public HeroPortrait Portrait { get; set; } = new HeroPortrait();
+
+        #region equality
+
+        public override bool Equals(object obj)
         {
-            if (name == null)
-                throw new ArgumentNullException(nameof(name));
-            
-            Name = name;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((IPlayableHero)obj);
         }
 
         public bool Equals(IPlayableHero other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return string.Equals(Name, other.Name, StringComparison.OrdinalIgnoreCase);
-        }
-
-        public string Name { get; }
-
-        public override bool Equals(object obj)
-        {
-            return Equals((IPlayableHero) obj);
+            return string.Equals(Name, other.Name) && Id == other.Id;
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return (StringComparer.OrdinalIgnoreCase.GetHashCode(Name) * 397);
+                return ((Name?.GetHashCode() ?? 0) * 397) ^ Id;
             }
         }
 
@@ -53,5 +69,7 @@ namespace Heroes.DraftViewer.Core
         {
             return $"{Name}";
         }
+
+        #endregion
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Heroes.DraftViewer.Core;
@@ -20,7 +19,11 @@ namespace Heroes.DraftViewer.Tests
 
             for (var x = 0; x < simulateActions; x++)
             {
-                chain.Handle(new Hero(Guid.NewGuid().ToString()));
+                chain.Handle(new Hero
+                {
+                    Id = new Random().Next(),
+                    Name = Guid.NewGuid().ToString()
+                });
             }
 
             Assert.That(chain.GetCurrentEventSequence, Is.EqualTo(expectation));
