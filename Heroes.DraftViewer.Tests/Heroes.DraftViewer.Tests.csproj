@@ -47,15 +47,23 @@
     <Compile Include="HeroRepositoryTests.cs" />
     <Compile Include="HeroResourceAttainerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplayParserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Heroes.DraftViewer.Core\Heroes.DraftViewer.Core.csproj">
       <Project>{4d76934b-54d6-4359-b509-0f1900255b92}</Project>
       <Name>Heroes.DraftViewer.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Heroes.ReplayParser\Heroes.ReplayParser\Heroes.ReplayParser.csproj">
+      <Project>{AAF78D53-A1DA-424A-B1AA-09895EAB3B2B}</Project>
+      <Name>Heroes.ReplayParser</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Sample\Battlefield of Eternity %28398%29.StormReplay">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
