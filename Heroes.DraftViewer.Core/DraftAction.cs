@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 
 namespace Heroes.DraftViewer.Core
 {
@@ -37,10 +36,6 @@ namespace Heroes.DraftViewer.Core
                 return $"{ToString()}{Environment.NewLine}{Successor.EventPrint()}";
 
             return ToString();
-            //if (Successor == null || !Successor.HasBeenApplied())
-            //    return ToString();
-
-            //return $"{ToString()}{Environment.NewLine}{Successor.EventPrint()}";
         }
 
         public int GetCurrentEventSequence()

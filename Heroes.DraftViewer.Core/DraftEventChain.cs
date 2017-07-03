@@ -1,4 +1,6 @@
-﻿namespace Heroes.DraftViewer.Core
+﻿using System.Collections.Generic;
+
+namespace Heroes.DraftViewer.Core
 {
     public class DraftEventChain
     {
@@ -6,10 +8,15 @@
         {
             var actions = new DraftAction[]
             {
-                new BanHeroAction(1), new BanHeroAction(2),
+                new BanHeroAction(1),
+                new BanHeroAction(2),
+
                 new SelectHeroAction(3),
                 new SelectHeroAction(4), new SelectHeroAction(5),
-                new BanHeroAction(6), new BanHeroAction(7),
+
+                new BanHeroAction(6),
+                new BanHeroAction(7),
+
                 new SelectHeroAction(8), new SelectHeroAction(9),
                 new SelectHeroAction(10), new SelectHeroAction(11),
                 new SelectHeroAction(12)
@@ -20,5 +27,11 @@
 
             return actions[0];
         }
+    }
+
+    public class DraftEventModel
+    {
+        public IDictionary<int, DraftAction> Bans { get; set; }
+        public IDictionary<int, DraftAction> Picks { get; set; }
     }
 }
