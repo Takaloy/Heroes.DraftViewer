@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace Heroes.DraftViewer.Core
@@ -5,14 +6,14 @@ namespace Heroes.DraftViewer.Core
 
     public interface IDraftEventModel
     {
-        IDictionary<int, DraftAction> Bans { get; }
-        IDictionary<int, DraftAction> Picks { get; }
+        IDictionary<int, IPlayableHero> Bans { get; }
+        IDictionary<int, IPlayableHero> Picks { get; }
     }
 
 
     public class DraftEventModel : IDraftEventModel
     {
-        public IDictionary<int, DraftAction> Bans { get; set; }
-        public IDictionary<int, DraftAction> Picks { get; set; }
+        public IDictionary<int, IPlayableHero> Bans { get; set; } = new Dictionary<int, IPlayableHero>();
+        public IDictionary<int, IPlayableHero> Picks { get; set; } = new Dictionary<int, IPlayableHero>();
     }
 }

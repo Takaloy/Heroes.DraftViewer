@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Heroes.DraftViewer.Core;
@@ -11,9 +12,9 @@ namespace Heroes.DraftViewer.Tests
     public class DraftEventChainTest
     {
         [TestCase(5,5)]
-        [TestCase(12, 12)]
-        [TestCase(15, 12)]
-        public void EventChainReturnsExactlyUpTo12Commands(int simulateActions, int expectation)
+        [TestCase(14, 14)]
+        [TestCase(15, 14)]
+        public void EventChainReturnsExactlyUpTo14Commands(int simulateActions, int expectation)
         {
             var chain = new DraftEventChain().GetEventHandler();
 
@@ -21,12 +22,33 @@ namespace Heroes.DraftViewer.Tests
             {
                 chain.Handle(new Hero
                 {
-                    Id = new Random().Next(),
+                    Id = x,
                     Name = Guid.NewGuid().ToString()
                 });
             }
 
             Assert.That(chain.GetCurrentEventSequence, Is.EqualTo(expectation));
+        }
+
+        [Test]
+        public void Bag_CreatesExpectedModel()
+        {
+            var chain = new DraftEventChain().GetEventHandler();
+
+            for (var x = 0; x < 14; x++)
+            {
+                chain.Handle(new Hero
+                {
+                    Id = x,
+                    Name = Guid.NewGuid().ToString()
+                });
+            }
+
+            var model = new DraftEventModel();
+            chain.Bag(model);
+
+            Assert.That(model.Bans.Count, Is.EqualTo(4));
+            Assert.That(model.Picks.Count, Is.EqualTo(10));
         }
     }
 }

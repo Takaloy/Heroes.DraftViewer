@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 
 namespace Heroes.DraftViewer.Core
 {
@@ -30,6 +31,8 @@ namespace Heroes.DraftViewer.Core
                 Successor?.Handle(hero);
         }
 
+        public abstract void Bag(IDraftEventModel model);
+
         public string EventPrint()
         {
             if (Successor?.HasBeenApplied() ?? false)
@@ -48,35 +51,5 @@ namespace Heroes.DraftViewer.Core
 
         private bool HasBeenApplied() => Hero != null;
 
-    }
-
-    public class SelectHeroAction : DraftAction
-    {
-        public SelectHeroAction(int sequence) : base(sequence)
-        {
-        }
-
-        public override string ToString()
-        {
-            if (Hero == null)
-                return $"{Sequence} : action not yet performed";
-
-            return $"{Sequence} : {Hero} picked";
-        }
-    }
-
-    public class BanHeroAction : DraftAction
-    {
-        public BanHeroAction(int sequence) : base(sequence)
-        {
-        }
-
-        public override string ToString()
-        {
-            if (Hero == null)
-                return $"{Sequence} : action not yet performed";
-
-            return $"{Sequence} : {Hero} banned";
-        }
     }
 }

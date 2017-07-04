@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanHeroAction.cs" />
     <Compile Include="DraftAction.cs" />
     <Compile Include="DraftEventChain.cs" />
     <Compile Include="DraftEventModel.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="HeroRepository.cs" />
     <Compile Include="HeroResourceAttainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectHeroAction.cs" />
     <Compile Include="UnexpectedReplayException.cs" />
   </ItemGroup>
   <ItemGroup>
