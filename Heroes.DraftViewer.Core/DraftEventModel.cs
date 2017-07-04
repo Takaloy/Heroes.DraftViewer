@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace Heroes.DraftViewer.Core
 {
+
     public interface IDraftEventModel
     {
         IDictionary<int, DraftAction> Bans { get; }

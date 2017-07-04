@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DraftAction.cs" />
     <Compile Include="DraftEventChain.cs" />
+    <Compile Include="DraftEventModel.cs" />
     <Compile Include="ReplayReader.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="HeroRepository.cs" />

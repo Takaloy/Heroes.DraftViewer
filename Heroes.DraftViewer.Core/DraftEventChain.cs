@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Heroes.DraftViewer.Core
+﻿namespace Heroes.DraftViewer.Core
 {
     public class DraftEventChain
     {
@@ -27,11 +25,5 @@ namespace Heroes.DraftViewer.Core
 
             return actions[0];
         }
-    }
-
-    public class DraftEventModel
-    {
-        public IDictionary<int, DraftAction> Bans { get; set; }
-        public IDictionary<int, DraftAction> Picks { get; set; }
     }
 }
