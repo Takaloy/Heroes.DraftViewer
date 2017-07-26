@@ -29,7 +29,7 @@ namespace Heroes.DraftViewer.Core
 
             var replay = replayParseResult.Item2;
 
-            var events = replay.TrackerEvents.Where(IsDraftEventType).OrderBy(r => r.TimeSpan);
+            var events = replay.TrackerEvents.Where(IsDraftEventType).OrderBy(r => r.TimeSpan).ThenBy(r => r.TrackerEventType);
 
             var chain = new DraftEventChain().GetEventHandler();
             foreach (var trackerEvent in events)

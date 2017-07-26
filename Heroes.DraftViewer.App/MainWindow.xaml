@@ -15,6 +15,12 @@
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Row="0" VerticalAlignment="Top" Margin="30 16 16 16">
@@ -30,7 +36,83 @@
             <Button x:Name="ReplayFilePickerButton" Grid.Column="3" VerticalAlignment="Center" Margin="8 5 5 0" Click="ReplayFilePickerButton_OnClick">Browse</Button>
         </Grid>
         <Grid Row="1">
-            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <TextBox x:Name="BanFirstTextBox" Text="{Binding FirstBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+            </Grid>
+            <Grid Column="1">
+                <TextBox x:Name="BanFourthTextBox" Text="{Binding FourthBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+            </Grid>
+            <Grid Column="2">
+                <TextBox x:Name="BanSecondTextBox" Text="{Binding SecondBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+            </Grid>
+            <Grid Column="3">
+                <TextBox x:Name="BanThirdTextBox" Text="{Binding ThirdBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+            </Grid>
         </Grid>
+        <Grid Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0"><Label Content="{Binding Path=Pick1, Mode=OneWay}"></Label></Grid>
+            <Grid Column="1">
+                <Label Content="{Binding Path=Pick2, Mode=OneWay}"></Label>
+            </Grid>
+        </Grid>
+        <Grid Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <Label Content="{Binding Path=Pick4, Mode=OneWay}"></Label>
+            </Grid>
+            <Grid Column="1">
+                <Label Content="{Binding Path=Pick3, Mode=OneWay}"></Label>
+            </Grid>
+        </Grid>
+        <Grid Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <Label Content="{Binding Path=Pick5, Mode=OneWay}"></Label>
+            </Grid>
+            <Grid Column="1">
+                <Label Content="{Binding Path=Pick6, Mode=OneWay}"></Label>
+            </Grid>
+        </Grid>
+        <Grid Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <Label Content="{Binding Path=Pick8, Mode=OneWay}"></Label>
+            </Grid>
+            <Grid Column="1">
+                <Label Content="{Binding Path=Pick7, Mode=OneWay}"></Label>
+            </Grid>
+        </Grid>
+        <Grid Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Column="0">
+                <Label Content="{Binding Path=Pick9, Mode=OneWay}"></Label>
+            </Grid>
+            <Grid Column="1">
+                <Label Content="{Binding Path=Pick10, Mode=OneWay}"></Label>
+            </Grid>
+        </Grid>
+        <Grid Row="7"></Grid>
     </Grid>
 </Window>
