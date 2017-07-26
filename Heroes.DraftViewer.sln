@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.DraftViewer.Core", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.DraftViewer.Tests", "Heroes.DraftViewer.Tests\Heroes.DraftViewer.Tests.csproj", "{4C0952C9-490A-40A6-93C0-FB31175E36FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes.DraftViewer.App", "Heroes.DraftViewer.App\Heroes.DraftViewer.App.csproj", "{080272B5-7A76-45D6-84E0-35320E25DBC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,14 @@ Global
 		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|x86.ActiveCfg = Release|Any CPU
 		{4C0952C9-490A-40A6-93C0-FB31175E36FF}.Release|x86.Build.0 = Release|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Debug|x86.Build.0 = Debug|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{080272B5-7A76-45D6-84E0-35320E25DBC3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

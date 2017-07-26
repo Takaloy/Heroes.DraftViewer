@@ -32,7 +32,7 @@ namespace Heroes.DraftViewer.Tests
             Console.WriteLine(chain.EventPrint());
 
             Assert.That(chain, Is.Not.Null);
-            Assert.That(chain.GetCurrentEventSequence(), Is.EqualTo(12));
+            Assert.That(chain.GetCurrentEventSequence(), Is.EqualTo(14));
         }
     }
 }

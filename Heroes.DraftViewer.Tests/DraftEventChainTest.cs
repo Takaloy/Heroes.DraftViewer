@@ -49,6 +49,9 @@ namespace Heroes.DraftViewer.Tests
 
             Assert.That(model.Bans.Count, Is.EqualTo(4));
             Assert.That(model.Picks.Count, Is.EqualTo(10));
+
+            CollectionAssert.AreEqual(model.Bans.Keys, new[] {1, 2, 8, 9});
+            CollectionAssert.AreEqual(model.Picks.Keys, new[] {3, 4, 5, 6, 7, 10, 11, 12, 13, 14});
         }
     }
 }
