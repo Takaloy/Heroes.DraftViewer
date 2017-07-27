@@ -47,8 +47,10 @@
     <Compile Include="Domain\HeroPortrait.cs" />
     <Compile Include="Domain\HeroRole.cs" />
     <Compile Include="Draft\DraftAction.cs" />
+    <Compile Include="Draft\DraftEvent.cs" />
     <Compile Include="Draft\DraftEventChain.cs" />
     <Compile Include="Draft\DraftEventModel.cs" />
+    <Compile Include="Draft\IDraftEvent.cs" />
     <Compile Include="ReplayReader.cs" />
     <Compile Include="Domain\Hero.cs" />
     <Compile Include="HeroResources\HeroRepository.cs" />

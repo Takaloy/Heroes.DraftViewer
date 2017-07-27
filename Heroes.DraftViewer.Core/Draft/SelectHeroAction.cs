@@ -1,7 +1,11 @@
+using Heroes.ReplayParser;
+
 namespace Heroes.DraftViewer.Core
 {
     public class SelectHeroAction : DraftAction
     {
+        private ReplayTrackerEvents.TrackerEventType _eventTrackerType = ReplayTrackerEvents.TrackerEventType.HeroPickedEvent;
+
         public SelectHeroAction(int sequence) : base(sequence)
         {
         }
@@ -22,6 +26,14 @@ namespace Heroes.DraftViewer.Core
             model.Picks.Add(Sequence, Hero);
 
             Successor?.Bag(model);
+        }
+
+        public override bool IsRelevantEvent(IDraftEvent draftEvent)
+        {
+            if (draftEvent.EventType == _eventTrackerType)
+                return true;
+
+            return false;
         }
     }
 }

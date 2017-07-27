@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Heroes.DraftViewer.Core;
+using Heroes.ReplayParser;
 using NUnit.Framework;
 
 namespace Heroes.DraftViewer.Tests
@@ -11,7 +12,7 @@ namespace Heroes.DraftViewer.Tests
     [TestFixture]
     public class DraftEventChainTest
     {
-
+        [TestCase(8, 6)]
         [TestCase(14, 14)]
         [TestCase(15, 14)]
         public void EventChainReturnsExactlyUpTo14Commands(int simulateActions, int expectation)
@@ -20,11 +21,16 @@ namespace Heroes.DraftViewer.Tests
 
             for (var x = 0; x < simulateActions; x++)
             {
-                chain.Handle(new Hero
+                var eventType = ReplayTrackerEvents.TrackerEventType.HeroPickedEvent;
+
+                if (x < 4)
+                    eventType = ReplayTrackerEvents.TrackerEventType.HeroBannedEvent;
+
+                chain.Handle(new DraftEvent(new Hero
                 {
                     Id = x,
                     Name = Guid.NewGuid().ToString()
-                });
+                }, eventType));
             }
 
             Assert.That(chain.GetCurrentEventSequence, Is.EqualTo(expectation));
@@ -35,13 +41,22 @@ namespace Heroes.DraftViewer.Tests
         {
             var chain = new DraftEventChain().GetEventHandler();
 
-            for (var x = 0; x < 14; x++)
+            for (var x = 0; x < 10; x++)
             {
-                chain.Handle(new Hero
+                chain.Handle(new DraftEvent(new Hero
                 {
                     Id = x,
                     Name = Guid.NewGuid().ToString()
-                });
+                }, ReplayTrackerEvents.TrackerEventType.HeroPickedEvent));
+            }
+
+            for (var x = 10; x < 14; x++)
+            {
+                chain.Handle(new DraftEvent(new Hero
+                {
+                    Id = x,
+                    Name = Guid.NewGuid().ToString()
+                }, ReplayTrackerEvents.TrackerEventType.HeroBannedEvent));
             }
 
             var model = new DraftEventModel();

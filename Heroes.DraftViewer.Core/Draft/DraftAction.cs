@@ -19,16 +19,29 @@ namespace Heroes.DraftViewer.Core
             Successor = successor;
         }
 
-        public virtual void Handle(IPlayableHero hero)
-        {
-            if (hero == null)
-                throw new ArgumentNullException(nameof(hero));
+        //public virtual void Handle(IPlayableHero hero)
+        //{
+        //    if (hero == null)
+        //        throw new ArgumentNullException(nameof(hero));
 
-            if (Hero == null)
-                Hero = hero;
+        //    if (Hero == null)
+        //        Hero = hero;
+        //    else
+        //        Successor?.Handle(hero);
+        //}
+
+        public virtual void Handle(IDraftEvent draftEvent)
+        {
+            if (draftEvent == null)
+                throw new ArgumentNullException(nameof(draftEvent));
+
+            if (Hero == null && IsRelevantEvent(draftEvent))
+                Hero = draftEvent.Hero;
             else
-                Successor?.Handle(hero);
+                Successor?.Handle(draftEvent);
         }
+
+        public abstract bool IsRelevantEvent(IDraftEvent draftEvent);
 
         public abstract void Bag(IDraftEventModel model);
 

@@ -34,7 +34,10 @@ namespace Heroes.DraftViewer.Core
             var chain = new DraftEventChain().GetEventHandler();
             foreach (var trackerEvent in events)
             {
-                chain.Handle(new Hero { Name = trackerEvent.Data.dictionary.Values.FirstOrDefault()?.ToString() });
+                var playableHero = new Hero { Name = trackerEvent.Data.dictionary.Values.FirstOrDefault()?.ToString() };
+                var draftEvent = new DraftEvent(playableHero, trackerEvent.TrackerEventType);
+
+                chain.Handle(draftEvent);
             }
 
             return chain;

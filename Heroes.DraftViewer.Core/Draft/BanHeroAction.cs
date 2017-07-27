@@ -1,7 +1,12 @@
+using System;
+using Heroes.ReplayParser;
+
 namespace Heroes.DraftViewer.Core
 {
     public class BanHeroAction : DraftAction
     {
+        private ReplayTrackerEvents.TrackerEventType _eventTrackerType = ReplayTrackerEvents.TrackerEventType.HeroBannedEvent;
+
         public BanHeroAction(int sequence) : base(sequence)
         {
         }
@@ -22,6 +27,13 @@ namespace Heroes.DraftViewer.Core
             model.Bans.Add(Sequence, Hero);
 
             Successor?.Bag(model);
+        }
+
+        public override bool IsRelevantEvent(IDraftEvent draftEvent)
+        {
+            if (draftEvent.EventType == _eventTrackerType)
+                return true;
+            return false;
         }
     }
 }
