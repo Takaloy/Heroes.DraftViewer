@@ -43,16 +43,16 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid Column="0">
-                <TextBox x:Name="BanFirstTextBox" Text="{Binding FirstBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+                <TextBox x:Name="BanFirstTextBox" Text="{Binding Ban1}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
             </Grid>
             <Grid Column="1">
-                <TextBox x:Name="BanFourthTextBox" Text="{Binding FourthBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+                <TextBox x:Name="BanFourthTextBox" Text="{Binding Ban4}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
             </Grid>
             <Grid Column="2">
-                <TextBox x:Name="BanSecondTextBox" Text="{Binding SecondBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+                <TextBox x:Name="BanSecondTextBox" Text="{Binding Ban2}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
             </Grid>
             <Grid Column="3">
-                <TextBox x:Name="BanThirdTextBox" Text="{Binding ThirdBan}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
+                <TextBox x:Name="BanThirdTextBox" Text="{Binding Ban3}" VerticalAlignment="Center" Margin="8 8 0 8"></TextBox>
             </Grid>
         </Grid>
         <Grid Row="2">

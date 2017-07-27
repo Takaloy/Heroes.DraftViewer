@@ -4,8 +4,8 @@ namespace Heroes.DraftViewer.App
 {
     public class DraftModel : INotifyPropertyChanged
     {
-        private string _firstBan;
-        private string _fourthBan;
+        private string _ban1;
+        private string _ban4;
         private string _pick1;
         private string _pick10;
         private string _pick2;
@@ -16,8 +16,8 @@ namespace Heroes.DraftViewer.App
         private string _pick7;
         private string _pick8;
         private string _pick9;
-        private string _secondBan;
-        private string _thirdBan;
+        private string _ban2;
+        private string _ban3;
 
         public string Pick6
         {
@@ -84,42 +84,42 @@ namespace Heroes.DraftViewer.App
             }
         }
 
-        public string SecondBan
+        public string Ban2
         {
-            get => _secondBan;
+            get => _ban2;
             set
             {
-                if (_secondBan == value)
+                if (_ban2 == value)
                     return;
 
-                _secondBan = value;
-                OnPropertyChanged("SecondBan");
+                _ban2 = value;
+                OnPropertyChanged("Ban2");
             }
         }
 
-        public string ThirdBan
+        public string Ban3
         {
-            get => _thirdBan;
+            get => _ban3;
             set
             {
-                if (_thirdBan == value)
+                if (_ban3 == value)
                     return;
 
-                _thirdBan = value;
-                OnPropertyChanged("ThirdBan");
+                _ban3 = value;
+                OnPropertyChanged("Ban3");
             }
         }
 
-        public string FourthBan
+        public string Ban4
         {
-            get => _fourthBan;
+            get => _ban4;
             set
             {
-                if (_fourthBan == value)
+                if (_ban4 == value)
                     return;
 
-                _fourthBan = value;
-                OnPropertyChanged("FourthBan");
+                _ban4 = value;
+                OnPropertyChanged("Ban4");
             }
         }
 
@@ -188,16 +188,16 @@ namespace Heroes.DraftViewer.App
             }
         }
 
-        public string FirstBan
+        public string Ban1
         {
-            get => _firstBan;
+            get => _ban1;
             set
             {
-                if (_firstBan == value)
+                if (_ban1 == value)
                     return;
 
-                _firstBan = value;
-                OnPropertyChanged("FirstBan");
+                _ban1 = value;
+                OnPropertyChanged("Ban1");
             }
         }
 
