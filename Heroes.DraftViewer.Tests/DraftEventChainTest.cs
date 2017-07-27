@@ -11,7 +11,7 @@ namespace Heroes.DraftViewer.Tests
     [TestFixture]
     public class DraftEventChainTest
     {
-        [TestCase(5,5)]
+
         [TestCase(14, 14)]
         [TestCase(15, 14)]
         public void EventChainReturnsExactlyUpTo14Commands(int simulateActions, int expectation)
