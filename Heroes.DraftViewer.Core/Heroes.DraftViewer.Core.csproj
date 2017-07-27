@@ -43,17 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanHeroAction.cs" />
-    <Compile Include="DraftAction.cs" />
-    <Compile Include="DraftEventChain.cs" />
-    <Compile Include="DraftEventModel.cs" />
+    <Compile Include="Draft\BanHeroAction.cs" />
+    <Compile Include="Domain\HeroPortrait.cs" />
+    <Compile Include="Domain\HeroRole.cs" />
+    <Compile Include="Draft\DraftAction.cs" />
+    <Compile Include="Draft\DraftEventChain.cs" />
+    <Compile Include="Draft\DraftEventModel.cs" />
     <Compile Include="ReplayReader.cs" />
-    <Compile Include="Hero.cs" />
-    <Compile Include="HeroRepository.cs" />
-    <Compile Include="HeroResourceAttainer.cs" />
+    <Compile Include="Domain\Hero.cs" />
+    <Compile Include="HeroResources\HeroRepository.cs" />
+    <Compile Include="HeroResources\HeroResourceAttainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectHeroAction.cs" />
-    <Compile Include="UnexpectedReplayException.cs" />
+    <Compile Include="Draft\SelectHeroAction.cs" />
+    <Compile Include="Exceptions\UnexpectedReplayException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Heroes.ReplayParser\Heroes.ReplayParser\Heroes.ReplayParser.csproj">

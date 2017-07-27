@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Concurrent;
 
 namespace Heroes.DraftViewer.Core
 {
@@ -49,7 +48,9 @@ namespace Heroes.DraftViewer.Core
             return Sequence;
         }
 
-        private bool HasBeenApplied() => Hero != null;
-
+        private bool HasBeenApplied()
+        {
+            return Hero != null;
+        }
     }
 }

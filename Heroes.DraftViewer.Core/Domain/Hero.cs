@@ -2,20 +2,6 @@
 
 namespace Heroes.DraftViewer.Core
 {
-    public enum HeroRole
-    {
-        Warrior = 1,
-        Support = 2,
-        Assassin = 3,
-        Specialist = 4
-    }
-
-    public class HeroPortrait
-    {
-        public string Small { get; set; }
-        public string Medium { get; set; }
-    }
-
     public interface IPlayableHero
     {
         int Id { get; }

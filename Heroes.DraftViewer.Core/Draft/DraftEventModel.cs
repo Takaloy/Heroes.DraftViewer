@@ -1,9 +1,7 @@
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace Heroes.DraftViewer.Core
 {
-
     public interface IDraftEventModel
     {
         IDictionary<int, IPlayableHero> Bans { get; }
