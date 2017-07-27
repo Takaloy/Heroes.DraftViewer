@@ -31,18 +31,25 @@ namespace Heroes.DraftViewer.App
 
         private void ReplayFilePickerButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var openDialog = new OpenFileDialog
+            try
             {
-                Filter = "StormReplay|*.StormReplay",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            };
+                var openDialog = new OpenFileDialog
+                {
+                    Filter = "StormReplay|*.StormReplay",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                };
 
-            var result = openDialog.ShowDialog();
+                var result = openDialog.ShowDialog();
 
-            if (result == true)
+                if (result == true)
+                {
+                    ReplayFileTextBox.Text = openDialog.FileName;
+                    LoadReplayFile(openDialog.FileName);
+                }
+            }
+            catch(Exception exception)
             {
-                ReplayFileTextBox.Text = openDialog.FileName;
-                LoadReplayFile(openDialog.FileName);
+                MessageBox.Show($"RIP: {exception.Message}", "OSsloth", MessageBoxButton.OK);
             }
         }
 
