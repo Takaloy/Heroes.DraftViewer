@@ -12,7 +12,6 @@ namespace Heroes.DraftViewer.App
     public partial class MainWindow : Window
     {
         private readonly DraftModel _model = new DraftModel();
-        private readonly IReplayReader _replayReader = new ReplayReader();
 
         public MainWindow()
         {
@@ -48,7 +47,8 @@ namespace Heroes.DraftViewer.App
 
         private async Task LoadReplayFile(string path)
         {
-            var chain = await _replayReader.GetDraftAsync(path);
+            var replayReader = new ReplayReader(path);
+            var chain = await replayReader.GetDraftAsync();
 
             var eventModel = new DraftEventModel();
             chain.Bag(eventModel);

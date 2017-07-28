@@ -8,17 +8,43 @@ namespace Heroes.DraftViewer.Core
 {
     public interface IReplayReader
     {
-        DraftAction GetDraft(string path);
-        Task<DraftAction> GetDraftAsync(string path);
+        Task<DraftAction> GetDraftAsync();
     }
 
     public class ReplayReader : IReplayReader
     {
-        public DraftAction GetDraft(string path)
+        private readonly Replay _replay;
+
+        public ReplayReader(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                throw new ArgumentNullException(nameof(path));
+
+            _replay = GetReplay(path);
+        }
+
+        public DraftAction GetDraft()
+        {
+            var events = _replay.TrackerEvents.Where(IsDraftEventType).OrderBy(r => r.TimeSpan).ThenBy(r => r.TrackerEventType);
+
+            var chain = new DraftEventChain().GetEventHandler();
+            foreach (var trackerEvent in events)
+            {
+                var trackerEventStructure = trackerEvent.Data.dictionary.Values.FirstOrDefault();
+                var playableHero = new Hero { Name = trackerEventStructure?.blobText };
+                var draftEvent = new DraftEvent(playableHero, trackerEvent.TrackerEventType);
+
+                chain.Handle(draftEvent);
+            }
+
+            return chain;
+        }
+
+        private static Replay GetReplay(string path)
         {
             if (!File.Exists(path))
                 throw new FileNotFoundException($"{path} could not be found. oops.");
-            
+
             if (!path.EndsWith(".StormReplay", StringComparison.CurrentCultureIgnoreCase))
                 throw new InvalidDataException($"{path} is not a valid replay file");
 
@@ -30,24 +56,12 @@ namespace Heroes.DraftViewer.Core
             }
 
             var replay = replayParseResult.Item2;
-
-            var events = replay.TrackerEvents.Where(IsDraftEventType).OrderBy(r => r.TimeSpan).ThenBy(r => r.TrackerEventType);
-
-            var chain = new DraftEventChain().GetEventHandler();
-            foreach (var trackerEvent in events)
-            {
-                var playableHero = new Hero { Name = trackerEvent.Data.dictionary.Values.FirstOrDefault()?.blobText };
-                var draftEvent = new DraftEvent(playableHero, trackerEvent.TrackerEventType);
-
-                chain.Handle(draftEvent);
-            }
-
-            return chain;
+            return replay;
         }
 
-        public Task<DraftAction> GetDraftAsync(string path)
+        public Task<DraftAction> GetDraftAsync()
         {
-            return Task.Run(() => GetDraft(path));
+            return Task.Run(() => GetDraft());
         }
 
         private static bool IsDraftEventType(TrackerEvent e)
