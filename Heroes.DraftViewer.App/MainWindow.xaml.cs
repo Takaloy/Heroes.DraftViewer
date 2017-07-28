@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using Heroes.DraftViewer.Core;
 using Microsoft.Win32;
@@ -11,6 +12,7 @@ namespace Heroes.DraftViewer.App
     public partial class MainWindow : Window
     {
         private readonly DraftModel _model = new DraftModel();
+        private readonly IReplayReader _replayReader = new ReplayReader();
 
         public MainWindow()
         {
@@ -18,7 +20,7 @@ namespace Heroes.DraftViewer.App
             DataContext = _model;
         }
 
-        private void ReplayFilePickerButton_OnClick(object sender, RoutedEventArgs e)
+        private async void ReplayFilePickerButton_OnClick(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -30,11 +32,13 @@ namespace Heroes.DraftViewer.App
 
                 var result = openDialog.ShowDialog();
 
-                if (result == true)
-                {
-                    ReplayFileTextBox.Text = openDialog.FileName;
-                    LoadReplayFile(openDialog.FileName);
-                }
+                if (result != true)
+                    return;
+
+                ReplayFileTextBox.Text = openDialog.FileName;
+
+                _model.Reset();
+                await LoadReplayFile(openDialog.FileName);
             }
             catch (Exception exception)
             {
@@ -42,10 +46,10 @@ namespace Heroes.DraftViewer.App
             }
         }
 
-        private void LoadReplayFile(string path)
+        private async Task LoadReplayFile(string path)
         {
-            var parser = new ReplayReader();
-            var chain = parser.GetDraft(path);
+            var chain = await _replayReader.GetDraftAsync(path);
+
             var eventModel = new DraftEventModel();
             chain.Bag(eventModel);
             _model.Bag(eventModel);

@@ -1,3 +1,4 @@
+using System;
 using Heroes.DraftViewer.Core;
 
 namespace Heroes.DraftViewer.App
@@ -27,6 +28,29 @@ namespace Heroes.DraftViewer.App
             model.Pick9 = eventModel.Picks[13].Name;
 
             model.Pick10 = eventModel.Picks[14].Name;
+        }
+
+        /// <summary>
+        /// is there a better way to do this?
+        /// </summary>
+        /// <param name="model"></param>
+        public static void Reset(this DraftModel model)
+        {
+            model.Ban1 = string.Empty;
+            model.Ban2 = string.Empty;
+            model.Ban3 = string.Empty;
+            model.Ban4 = string.Empty;
+
+            model.Pick1 = string.Empty;
+            model.Pick2 = string.Empty;
+            model.Pick3 = string.Empty;
+            model.Pick4 = string.Empty;
+            model.Pick5 = string.Empty;
+            model.Pick6 = string.Empty;
+            model.Pick7 = string.Empty;
+            model.Pick8 = string.Empty;
+            model.Pick9 = string.Empty;
+            model.Pick10 = string.Empty;
         }
     }
 }

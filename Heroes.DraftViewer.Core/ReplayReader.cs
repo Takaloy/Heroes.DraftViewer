@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Heroes.ReplayParser;
 
 namespace Heroes.DraftViewer.Core
@@ -8,6 +9,7 @@ namespace Heroes.DraftViewer.Core
     public interface IReplayReader
     {
         DraftAction GetDraft(string path);
+        Task<DraftAction> GetDraftAsync(string path);
     }
 
     public class ReplayReader : IReplayReader
@@ -41,6 +43,11 @@ namespace Heroes.DraftViewer.Core
             }
 
             return chain;
+        }
+
+        public Task<DraftAction> GetDraftAsync(string path)
+        {
+            return Task.Run(() => GetDraft(path));
         }
 
         private static bool IsDraftEventType(TrackerEvent e)

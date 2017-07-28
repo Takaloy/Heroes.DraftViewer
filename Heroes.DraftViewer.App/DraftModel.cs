@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Resources;
 
 namespace Heroes.DraftViewer.App
 {
