@@ -59,9 +59,9 @@ namespace Heroes.DraftViewer.Core
             return replay;
         }
 
-        public Task<DraftAction> GetDraftAsync()
+        public async Task<DraftAction> GetDraftAsync()
         {
-            return Task.Run(() => GetDraft());
+            return await Task.Run(() => GetDraft());
         }
 
         private static bool IsDraftEventType(TrackerEvent e)
